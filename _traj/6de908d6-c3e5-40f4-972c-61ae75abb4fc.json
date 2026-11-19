@@ -3647,19 +3647,1332 @@
         "cwd": "/Users/luwei/work/AI/RSIAgent",
         "is_sidechain": false
       }
+    },
+    {
+      "step_id": 46,
+      "timestamp": "2026-11-19T19:07:38.029Z",
+      "source": "user",
+      "message": "把 BRS/DRS 这两个术语标注到 NOTE.md 对应的章节标题和流程图子图上",
+      "extra": {
+        "is_sidechain": false
+      }
+    },
+    {
+      "step_id": 47,
+      "timestamp": "2026-11-19T19:07:40.037Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Bash toolu_019ueuMjx8qQvVAykYmvW4d5",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_019ueuMjx8qQvVAykYmvW4d5",
+          "function_name": "Bash",
+          "arguments": {
+            "command": "grep -nE '^## (4|5)\\.|subgraph (P1|P2|EV)\\[|# Phase 1：|# Phase 2：' NOTE.md",
+            "description": "定位需要标注的标题与子图行"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_019ueuMjx8qQvVAykYmvW4d5",
+            "content": "27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]\n\n[stdout]\n27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]\n[metadata] {\"noOutputExpected\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173053,
+        "completion_tokens": 156,
+        "cached_tokens": 173049,
+        "extra": {
+          "cache_creation_input_tokens": 42,
+          "cache_read_input_tokens": 173049,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 42,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 4,
+              "output_tokens": 156,
+              "cache_read_input_tokens": 173049,
+              "cache_creation_input_tokens": 42,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 42
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Bash",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "stdout": "27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]",
+            "stderr": "",
+            "interrupted": false,
+            "isImage": false,
+            "noOutputExpected": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_019ueuMjx8qQvVAykYmvW4d5",
+            "type": "tool_result",
+            "content": "27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]",
+            "is_error": false
+          }
+        },
+        "tool_result_is_error": false,
+        "metadata": {
+          "tool_use_result": {
+            "stdout": "27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]",
+            "stderr": "",
+            "interrupted": false,
+            "isImage": false,
+            "noOutputExpected": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_019ueuMjx8qQvVAykYmvW4d5",
+            "type": "tool_result",
+            "content": "27:    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\n30:    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"\n84:## 4. Phase 1：并行波次探索\n114:## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n375:    subgraph P1[\"phase1_parallel_waves\"]\n388:    subgraph P2[\"phase2_target_loop\"]\n405:    subgraph EV[\"evolve_until_ready\"]",
+            "is_error": false
+          }
+        },
+        "raw_arguments": {
+          "command": "grep -nE '^## (4|5)\\.|subgraph (P1|P2|EV)\\[|# Phase 1：|# Phase 2：' NOTE.md",
+          "description": "定位需要标注的标题与子图行"
+        }
+      }
+    },
+    {
+      "step_id": 48,
+      "timestamp": "2026-11-19T19:07:42.490Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_019W96vSuDidLGyN4SmJTWWg",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_019W96vSuDidLGyN4SmJTWWg",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "    # Phase 1：围绕",
+            "new_string": "    # Phase 1（BRS）：围绕"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_019W96vSuDidLGyN4SmJTWWg",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"    # Phase 1：围绕\", \"newString\": \"    # Phase 1（BRS）：围绕\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 24, \"oldLines\": 7, \"newStart\": 24, \"newLines\": 7, \"lines\": [\" def RSI(protocol):\", \"     memory = {}                                             # 空记忆起步\", \" \", \"-    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆\", \"+    # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆\", \"     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)\", \" \", \"     # Phase 2：逐个开发目标任务做\\\"真实尝试 → 学习 →（针对性练习）→ 重试\\\"\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    # Phase 1：围绕",
+            "newString": "    # Phase 1（BRS）：围绕",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 24,
+                "oldLines": 7,
+                "newStart": 24,
+                "newLines": 7,
+                "lines": [
+                  " def RSI(protocol):",
+                  "     memory = {}                                             # 空记忆起步",
+                  " ",
+                  "-    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "+    # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)",
+                  " ",
+                  "     # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\""
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_019W96vSuDidLGyN4SmJTWWg",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    # Phase 1：围绕",
+            "newString": "    # Phase 1（BRS）：围绕",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 24,
+                "oldLines": 7,
+                "newStart": 24,
+                "newLines": 7,
+                "lines": [
+                  " def RSI(protocol):",
+                  "     memory = {}                                             # 空记忆起步",
+                  " ",
+                  "-    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "+    # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)",
+                  " ",
+                  "     # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\""
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_019W96vSuDidLGyN4SmJTWWg",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "    # Phase 1：围绕",
+          "new_string": "    # Phase 1（BRS）：围绕"
+        }
+      }
+    },
+    {
+      "step_id": 49,
+      "timestamp": "2026-11-19T19:07:43.440Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_018s7SKY4XXUQjQvMiSwyXGA",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_018s7SKY4XXUQjQvMiSwyXGA",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "    # Phase 2：逐个",
+            "new_string": "    # Phase 2（DRS）：逐个"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_018s7SKY4XXUQjQvMiSwyXGA",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"    # Phase 2：逐个\", \"newString\": \"    # Phase 2（DRS）：逐个\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 27, \"oldLines\": 7, \"newStart\": 27, \"newLines\": 7, \"lines\": [\"     # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆\", \"     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)\", \" \", \"-    # Phase 2：逐个开发目标任务做\\\"真实尝试 → 学习 →（针对性练习）→ 重试\\\"\", \"+    # Phase 2（DRS）：逐个开发目标任务做\\\"真实尝试 → 学习 →（针对性练习）→ 重试\\\"\", \"     for task in protocol.development_tasks:\", \"         memory = phase2_target_loop(task, memory)           # 记忆在任务间串行继承\", \" \"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    # Phase 2：逐个",
+            "newString": "    # Phase 2（DRS）：逐个",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 27,
+                "oldLines": 7,
+                "newStart": 27,
+                "newLines": 7,
+                "lines": [
+                  "     # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)",
+                  " ",
+                  "-    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"",
+                  "+    # Phase 2（DRS）：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"",
+                  "     for task in protocol.development_tasks:",
+                  "         memory = phase2_target_loop(task, memory)           # 记忆在任务间串行继承",
+                  " "
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_018s7SKY4XXUQjQvMiSwyXGA",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    # Phase 2：逐个",
+            "newString": "    # Phase 2（DRS）：逐个",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 27,
+                "oldLines": 7,
+                "newStart": 27,
+                "newLines": 7,
+                "lines": [
+                  "     # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆",
+                  "     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)",
+                  " ",
+                  "-    # Phase 2：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"",
+                  "+    # Phase 2（DRS）：逐个开发目标任务做\"真实尝试 → 学习 →（针对性练习）→ 重试\"",
+                  "     for task in protocol.development_tasks:",
+                  "         memory = phase2_target_loop(task, memory)           # 记忆在任务间串行继承",
+                  " "
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_018s7SKY4XXUQjQvMiSwyXGA",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "    # Phase 2：逐个",
+          "new_string": "    # Phase 2（DRS）：逐个"
+        }
+      }
+    },
+    {
+      "step_id": 50,
+      "timestamp": "2026-11-19T19:07:45.482Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_01WMMaxWepmd2zR5RLeuxvPb",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_01WMMaxWepmd2zR5RLeuxvPb",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "## 4. Phase 1：并行波次探索\n",
+            "new_string": "## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\n\nBRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\n"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_01WMMaxWepmd2zR5RLeuxvPb",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"## 4. Phase 1：并行波次探索\\n\", \"newString\": \"## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\\n\\nBRS 是论文对 Phase 1 的称呼：先\\\"广\\\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\\n\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 81, \"oldLines\": 8, \"newStart\": 81, \"newLines\": 10, \"lines\": [\" \", \" 对应代码：[`_promote_learning`](explore/target_learning.py#L163)、[`_commit_branch_memory`](explore/phase1_wave.py#L507)。\", \" \", \"-## 4. Phase 1：并行波次探索\", \"+## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\", \" \", \"+BRS 是论文对 Phase 1 的称呼：先\\\"广\\\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\", \"+\", \" ```python\", \" # explore/phase1_wave.py: evolve_parallel_phase1\", \" def phase1_parallel_waves(direction, memory, budget):\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "## 4. Phase 1：并行波次探索\n",
+            "newString": "## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\n\nBRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\n",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 81,
+                "oldLines": 8,
+                "newStart": 81,
+                "newLines": 10,
+                "lines": [
+                  " ",
+                  " 对应代码：[`_promote_learning`](explore/target_learning.py#L163)、[`_commit_branch_memory`](explore/phase1_wave.py#L507)。",
+                  " ",
+                  "-## 4. Phase 1：并行波次探索",
+                  "+## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）",
+                  " ",
+                  "+BRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。",
+                  "+",
+                  " ```python",
+                  " # explore/phase1_wave.py: evolve_parallel_phase1",
+                  " def phase1_parallel_waves(direction, memory, budget):"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01WMMaxWepmd2zR5RLeuxvPb",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "## 4. Phase 1：并行波次探索\n",
+            "newString": "## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\n\nBRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\n",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 81,
+                "oldLines": 8,
+                "newStart": 81,
+                "newLines": 10,
+                "lines": [
+                  " ",
+                  " 对应代码：[`_promote_learning`](explore/target_learning.py#L163)、[`_commit_branch_memory`](explore/phase1_wave.py#L507)。",
+                  " ",
+                  "-## 4. Phase 1：并行波次探索",
+                  "+## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）",
+                  " ",
+                  "+BRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。",
+                  "+",
+                  " ```python",
+                  " # explore/phase1_wave.py: evolve_parallel_phase1",
+                  " def phase1_parallel_waves(direction, memory, budget):"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01WMMaxWepmd2zR5RLeuxvPb",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "## 4. Phase 1：并行波次探索\n",
+          "new_string": "## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\n\nBRS 是论文对 Phase 1 的称呼：先\"广\"——并行获取多样经验，整波结束后按序把经验合并进记忆。\n"
+        }
+      }
+    },
+    {
+      "step_id": 51,
+      "timestamp": "2026-11-19T19:07:47.727Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_01A4aSDBciqT6qtoMZr7GgrN",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_01A4aSDBciqT6qtoMZr7GgrN",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n",
+            "new_string": "## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）\n\nDRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\n"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_01A4aSDBciqT6qtoMZr7GgrN",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"## 5. Phase 2：目标任务驱动的\\\"尝试—学习—练习—重试\\\"\\n\", \"newString\": \"## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\\\"尝试—学习—练习—重试\\\"）\\n\\nDRS 是论文对 Phase 2 的称呼：再\\\"深\\\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\\n\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 113, \"oldLines\": 8, \"newStart\": 113, \"newLines\": 10, \"lines\": [\" \", \" 对应代码：[`evolve_parallel_phase1`](explore/phase1_wave.py#L551)。\", \" \", \"-## 5. Phase 2：目标任务驱动的\\\"尝试—学习—练习—重试\\\"\", \"+## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\\\"尝试—学习—练习—重试\\\"）\", \" \", \"+DRS 是论文对 Phase 2 的称呼：再\\\"深\\\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\", \"+\", \" ```python\", \" # core/self_evolving_loop.py: run_self_evolving_loop（hooks 实现在 benchmarks/osworld/phase2.py）\", \" def phase2_target_loop(task, memory):\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n",
+            "newString": "## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）\n\nDRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\n",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 113,
+                "oldLines": 8,
+                "newStart": 113,
+                "newLines": 10,
+                "lines": [
+                  " ",
+                  " 对应代码：[`evolve_parallel_phase1`](explore/phase1_wave.py#L551)。",
+                  " ",
+                  "-## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"",
+                  "+## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）",
+                  " ",
+                  "+DRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。",
+                  "+",
+                  " ```python",
+                  " # core/self_evolving_loop.py: run_self_evolving_loop（hooks 实现在 benchmarks/osworld/phase2.py）",
+                  " def phase2_target_loop(task, memory):"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01A4aSDBciqT6qtoMZr7GgrN",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n",
+            "newString": "## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）\n\nDRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\n",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 113,
+                "oldLines": 8,
+                "newStart": 113,
+                "newLines": 10,
+                "lines": [
+                  " ",
+                  " 对应代码：[`evolve_parallel_phase1`](explore/phase1_wave.py#L551)。",
+                  " ",
+                  "-## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"",
+                  "+## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）",
+                  " ",
+                  "+DRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。",
+                  "+",
+                  " ```python",
+                  " # core/self_evolving_loop.py: run_self_evolving_loop（hooks 实现在 benchmarks/osworld/phase2.py）",
+                  " def phase2_target_loop(task, memory):"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01A4aSDBciqT6qtoMZr7GgrN",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "## 5. Phase 2：目标任务驱动的\"尝试—学习—练习—重试\"\n",
+          "new_string": "## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的\"尝试—学习—练习—重试\"）\n\nDRS 是论文对 Phase 2 的称呼：再\"深\"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。\n"
+        }
+      }
+    },
+    {
+      "step_id": 52,
+      "timestamp": "2026-11-19T19:07:48.865Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_0185tmGuU9wAXvWxE23rBSo7",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_0185tmGuU9wAXvWxE23rBSo7",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "    subgraph P1[\"phase1_parallel_waves\"]",
+            "new_string": "    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_0185tmGuU9wAXvWxE23rBSo7",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"    subgraph P1[\\\"phase1_parallel_waves\\\"]\", \"newString\": \"    subgraph P1[\\\"BRS（Phase 1）：phase1_parallel_waves\\\"]\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 376, \"oldLines\": 7, \"newStart\": 376, \"newLines\": 7, \"lines\": [\"         r4 --> r5([\\\"返回官方得分\\\"])\", \"     end\", \" \", \"-    subgraph P1[\\\"phase1_parallel_waves\\\"]\", \"+    subgraph P1[\\\"BRS（Phase 1）：phase1_parallel_waves\\\"]\", \"         p1a[\\\"新建 Curriculum 上下文\\\"] --> p1b{\\\"项目预算未用完？\\\"}\", \"         p1b -- \\\"否\\\" --> p1z([\\\"返回 memory\\\"])\", \"         p1b -- \\\"是\\\" --> p1c[\\\"LLM Curriculum：P_WAVE_CURRICULUM\\\"]\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph P1[\"phase1_parallel_waves\"]",
+            "newString": "    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 376,
+                "oldLines": 7,
+                "newStart": 376,
+                "newLines": 7,
+                "lines": [
+                  "         r4 --> r5([\"返回官方得分\"])",
+                  "     end",
+                  " ",
+                  "-    subgraph P1[\"phase1_parallel_waves\"]",
+                  "+    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]",
+                  "         p1a[\"新建 Curriculum 上下文\"] --> p1b{\"项目预算未用完？\"}",
+                  "         p1b -- \"否\" --> p1z([\"返回 memory\"])",
+                  "         p1b -- \"是\" --> p1c[\"LLM Curriculum：P_WAVE_CURRICULUM\"]"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_0185tmGuU9wAXvWxE23rBSo7",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph P1[\"phase1_parallel_waves\"]",
+            "newString": "    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 376,
+                "oldLines": 7,
+                "newStart": 376,
+                "newLines": 7,
+                "lines": [
+                  "         r4 --> r5([\"返回官方得分\"])",
+                  "     end",
+                  " ",
+                  "-    subgraph P1[\"phase1_parallel_waves\"]",
+                  "+    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]",
+                  "         p1a[\"新建 Curriculum 上下文\"] --> p1b{\"项目预算未用完？\"}",
+                  "         p1b -- \"否\" --> p1z([\"返回 memory\"])",
+                  "         p1b -- \"是\" --> p1c[\"LLM Curriculum：P_WAVE_CURRICULUM\"]"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_0185tmGuU9wAXvWxE23rBSo7",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "    subgraph P1[\"phase1_parallel_waves\"]",
+          "new_string": "    subgraph P1[\"BRS（Phase 1）：phase1_parallel_waves\"]"
+        }
+      }
+    },
+    {
+      "step_id": 53,
+      "timestamp": "2026-11-19T19:07:49.955Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_01E6S8vb3Bv9pQEE2ibzjZoW",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_01E6S8vb3Bv9pQEE2ibzjZoW",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "    subgraph P2[\"phase2_target_loop\"]",
+            "new_string": "    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_01E6S8vb3Bv9pQEE2ibzjZoW",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"    subgraph P2[\\\"phase2_target_loop\\\"]\", \"newString\": \"    subgraph P2[\\\"DRS（Phase 2）外层：phase2_target_loop\\\"]\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 389, \"oldLines\": 7, \"newStart\": 389, \"newLines\": 7, \"lines\": [\"         p1h --> p1b\", \"     end\", \" \", \"-    subgraph P2[\\\"phase2_target_loop\\\"]\", \"+    subgraph P2[\\\"DRS（Phase 2）外层：phase2_target_loop\\\"]\", \"         p2a[\\\"新建 Curriculum 上下文\\\"] --> p2b[\\\"fresh_target_environment<br/>新建 Verifier 与 Actor 上下文\\\"]\", \"         p2b --> p2c[\\\"LLM Actor：P_MEMORY_PREAMBLE + P_OPENING\\\"]\", \"         p2c --> p2d[\\\"LLM Verifier：P_TARGET_VERIFIER\\\"]\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph P2[\"phase2_target_loop\"]",
+            "newString": "    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 389,
+                "oldLines": 7,
+                "newStart": 389,
+                "newLines": 7,
+                "lines": [
+                  "         p1h --> p1b",
+                  "     end",
+                  " ",
+                  "-    subgraph P2[\"phase2_target_loop\"]",
+                  "+    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]",
+                  "         p2a[\"新建 Curriculum 上下文\"] --> p2b[\"fresh_target_environment<br/>新建 Verifier 与 Actor 上下文\"]",
+                  "         p2b --> p2c[\"LLM Actor：P_MEMORY_PREAMBLE + P_OPENING\"]",
+                  "         p2c --> p2d[\"LLM Verifier：P_TARGET_VERIFIER\"]"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01E6S8vb3Bv9pQEE2ibzjZoW",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph P2[\"phase2_target_loop\"]",
+            "newString": "    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 389,
+                "oldLines": 7,
+                "newStart": 389,
+                "newLines": 7,
+                "lines": [
+                  "         p1h --> p1b",
+                  "     end",
+                  " ",
+                  "-    subgraph P2[\"phase2_target_loop\"]",
+                  "+    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]",
+                  "         p2a[\"新建 Curriculum 上下文\"] --> p2b[\"fresh_target_environment<br/>新建 Verifier 与 Actor 上下文\"]",
+                  "         p2b --> p2c[\"LLM Actor：P_MEMORY_PREAMBLE + P_OPENING\"]",
+                  "         p2c --> p2d[\"LLM Verifier：P_TARGET_VERIFIER\"]"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01E6S8vb3Bv9pQEE2ibzjZoW",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "    subgraph P2[\"phase2_target_loop\"]",
+          "new_string": "    subgraph P2[\"DRS（Phase 2）外层：phase2_target_loop\"]"
+        }
+      }
+    },
+    {
+      "step_id": 54,
+      "timestamp": "2026-11-19T19:07:51.121Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_017pzzMCwowye8NGNb2wGawV",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_017pzzMCwowye8NGNb2wGawV",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "    subgraph EV[\"evolve_until_ready\"]",
+            "new_string": "    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_017pzzMCwowye8NGNb2wGawV",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"    subgraph EV[\\\"evolve_until_ready\\\"]\", \"newString\": \"    subgraph EV[\\\"DRS（Phase 2）内层：evolve_until_ready\\\"]\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 406, \"oldLines\": 7, \"newStart\": 406, \"newLines\": 7, \"lines\": [\"         p2k --> p2b\", \"     end\", \" \", \"-    subgraph EV[\\\"evolve_until_ready\\\"]\", \"+    subgraph EV[\\\"DRS（Phase 2）内层：evolve_until_ready\\\"]\", \"         ev1[\\\"fresh_null_vm，只读挂载 memory\\\"] --> ev2[\\\"LLM Curriculum：P_PHASE2_CURRICULUM + P_CURRICULUM_RUNTIME\\\"]\", \"         ev2 --> ev3{\\\"DECISION\\\"}\", \"         ev3 -- \\\"STALLED\\\" --> evs([\\\"返回 STALLED\\\"])\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph EV[\"evolve_until_ready\"]",
+            "newString": "    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 406,
+                "oldLines": 7,
+                "newStart": 406,
+                "newLines": 7,
+                "lines": [
+                  "         p2k --> p2b",
+                  "     end",
+                  " ",
+                  "-    subgraph EV[\"evolve_until_ready\"]",
+                  "+    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]",
+                  "         ev1[\"fresh_null_vm，只读挂载 memory\"] --> ev2[\"LLM Curriculum：P_PHASE2_CURRICULUM + P_CURRICULUM_RUNTIME\"]",
+                  "         ev2 --> ev3{\"DECISION\"}",
+                  "         ev3 -- \"STALLED\" --> evs([\"返回 STALLED\"])"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_017pzzMCwowye8NGNb2wGawV",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "    subgraph EV[\"evolve_until_ready\"]",
+            "newString": "    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 406,
+                "oldLines": 7,
+                "newStart": 406,
+                "newLines": 7,
+                "lines": [
+                  "         p2k --> p2b",
+                  "     end",
+                  " ",
+                  "-    subgraph EV[\"evolve_until_ready\"]",
+                  "+    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]",
+                  "         ev1[\"fresh_null_vm，只读挂载 memory\"] --> ev2[\"LLM Curriculum：P_PHASE2_CURRICULUM + P_CURRICULUM_RUNTIME\"]",
+                  "         ev2 --> ev3{\"DECISION\"}",
+                  "         ev3 -- \"STALLED\" --> evs([\"返回 STALLED\"])"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_017pzzMCwowye8NGNb2wGawV",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "    subgraph EV[\"evolve_until_ready\"]",
+          "new_string": "    subgraph EV[\"DRS（Phase 2）内层：evolve_until_ready\"]"
+        }
+      }
+    },
+    {
+      "step_id": 55,
+      "timestamp": "2026-11-19T19:07:52.736Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Edit toolu_01HsVQFKZQiUuJYnAf4mBcBP",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_01HsVQFKZQiUuJYnAf4mBcBP",
+          "function_name": "Edit",
+          "arguments": {
+            "replace_all": false,
+            "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "old_string": "        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]\n        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>",
+            "new_string": "        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]\n        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_01HsVQFKZQiUuJYnAf4mBcBP",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)\n\n[metadata] {\"filePath\": \"/Users/luwei/work/AI/RSIAgent/NOTE.md\", \"oldString\": \"        r0([\\\"memory = 空\\\"]) --> r1[[\\\"phase1_parallel_waves\\\"]]\\n        r1 --> r2[[\\\"对每个开发任务：phase2_target_loop<br/>\", \"newString\": \"        r0([\\\"memory = 空\\\"]) --> r1[[\\\"BRS：phase1_parallel_waves\\\"]]\\n        r1 --> r2[[\\\"DRS：对每个开发任务 phase2_target_loop<br/>\", \"originalFile\": null, \"structuredPatch\": [{\"oldStart\": 369, \"oldLines\": 8, \"newStart\": 369, \"newLines\": 8, \"lines\": [\" ```mermaid\", \" flowchart TD\", \"     subgraph RSI[\\\"RSI(protocol)\\\"]\", \"-        r0([\\\"memory = 空\\\"]) --> r1[[\\\"phase1_parallel_waves\\\"]]\", \"-        r1 --> r2[[\\\"对每个开发任务：phase2_target_loop<br/>记忆在任务间串行继承\\\"]]\", \"+        r0([\\\"memory = 空\\\"]) --> r1[[\\\"BRS：phase1_parallel_waves\\\"]]\", \"+        r1 --> r2[[\\\"DRS：对每个开发任务 phase2_target_loop<br/>记忆在任务间串行继承\\\"]]\", \"         r2 --> r3[\\\"freeze(memory)\\\"]\", \"         r3 --> r4[[\\\"对每个留出任务：phase3_evaluate\\\"]]\", \"         r4 --> r5([\\\"返回官方得分\\\"])\"]}], \"userModified\": false, \"replaceAll\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 173093,
+        "completion_tokens": 1541,
+        "cached_tokens": 173091,
+        "extra": {
+          "cache_creation_input_tokens": 364,
+          "cache_read_input_tokens": 173091,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 364,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 1541,
+              "cache_read_input_tokens": 173091,
+              "cache_creation_input_tokens": 364,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 364
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Edit",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]\n        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>",
+            "newString": "        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]\n        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 369,
+                "oldLines": 8,
+                "newStart": 369,
+                "newLines": 8,
+                "lines": [
+                  " ```mermaid",
+                  " flowchart TD",
+                  "     subgraph RSI[\"RSI(protocol)\"]",
+                  "-        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]",
+                  "-        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>记忆在任务间串行继承\"]]",
+                  "+        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]",
+                  "+        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>记忆在任务间串行继承\"]]",
+                  "         r2 --> r3[\"freeze(memory)\"]",
+                  "         r3 --> r4[[\"对每个留出任务：phase3_evaluate\"]]",
+                  "         r4 --> r5([\"返回官方得分\"])"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01HsVQFKZQiUuJYnAf4mBcBP",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "metadata": {
+          "tool_use_result": {
+            "filePath": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+            "oldString": "        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]\n        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>",
+            "newString": "        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]\n        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>",
+            "originalFile": null,
+            "structuredPatch": [
+              {
+                "oldStart": 369,
+                "oldLines": 8,
+                "newStart": 369,
+                "newLines": 8,
+                "lines": [
+                  " ```mermaid",
+                  " flowchart TD",
+                  "     subgraph RSI[\"RSI(protocol)\"]",
+                  "-        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]",
+                  "-        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>记忆在任务间串行继承\"]]",
+                  "+        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]",
+                  "+        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>记忆在任务间串行继承\"]]",
+                  "         r2 --> r3[\"freeze(memory)\"]",
+                  "         r3 --> r4[[\"对每个留出任务：phase3_evaluate\"]]",
+                  "         r4 --> r5([\"返回官方得分\"])"
+                ]
+              }
+            ],
+            "userModified": false,
+            "replaceAll": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_01HsVQFKZQiUuJYnAf4mBcBP",
+            "type": "tool_result",
+            "content": "The file /Users/luwei/work/AI/RSIAgent/NOTE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+          }
+        },
+        "raw_arguments": {
+          "replace_all": false,
+          "file_path": "/Users/luwei/work/AI/RSIAgent/NOTE.md",
+          "old_string": "        r0([\"memory = 空\"]) --> r1[[\"phase1_parallel_waves\"]]\n        r1 --> r2[[\"对每个开发任务：phase2_target_loop<br/>",
+          "new_string": "        r0([\"memory = 空\"]) --> r1[[\"BRS：phase1_parallel_waves\"]]\n        r1 --> r2[[\"DRS：对每个开发任务 phase2_target_loop<br/>"
+        }
+      }
+    },
+    {
+      "step_id": 56,
+      "timestamp": "2026-11-19T19:07:56.256Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "已在 `NOTE.md` 中标注完成，流程图仍未渲染验证（改动只涉及带引号的标签文字）。\n\n- **章节标题**：第 4 节改为\"Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）\"，第 5 节改为\"Phase 2：Deep Recursive Self-exploration（DRS，…）\"，标题下各加了一句术语说明。\n- **流程图子图**：`phase1_parallel_waves` 标为\"BRS（Phase 1）\"；`phase2_target_loop` 和 `evolve_until_ready` 分别标为\"DRS（Phase 2）外层 / 内层\"，因为这两个函数合起来才是 DRS。\n- **顺带改的两处**：第 2 节顶层伪码的注释，以及流程图 `RSI` 子图里的两个调用节点，也加了 BRS/DRS 前缀，方便对照。",
+      "metrics": {
+        "prompt_tokens": 173457,
+        "completion_tokens": 321,
+        "cached_tokens": 173455,
+        "extra": {
+          "cache_creation_input_tokens": 2171,
+          "cache_read_input_tokens": 173455,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 2171,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 321,
+              "cache_read_input_tokens": 173455,
+              "cache_creation_input_tokens": 2171,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 2171
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "end_turn",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false
+      }
     }
   ],
   "final_metrics": {
-    "total_prompt_tokens": 4922854,
-    "total_completion_tokens": 53670,
-    "total_cached_tokens": 4922762,
-    "total_steps": 45,
+    "total_prompt_tokens": 6654108,
+    "total_completion_tokens": 66475,
+    "total_cached_tokens": 6653994,
+    "total_steps": 56,
     "extra": {
       "service_tiers": [
         "standard"
       ],
-      "total_cache_creation_input_tokens": 341911,
-      "total_cache_read_input_tokens": 4922762
+      "total_cache_creation_input_tokens": 347036,
+      "total_cache_read_input_tokens": 6653994
     }
   }
 }

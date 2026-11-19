@@ -24,10 +24,10 @@
 def RSI(protocol):
     memory = {}                                             # 空记忆起步
 
-    # Phase 1：围绕目标分布/目标查询做并行探索练习，积累记忆
+    # Phase 1（BRS）：围绕目标分布/目标查询做并行探索练习，积累记忆
     memory = phase1_parallel_waves(protocol.direction, memory, budget=protocol.project_budget)
 
-    # Phase 2：逐个开发目标任务做"真实尝试 → 学习 →（针对性练习）→ 重试"
+    # Phase 2（DRS）：逐个开发目标任务做"真实尝试 → 学习 →（针对性练习）→ 重试"
     for task in protocol.development_tasks:
         memory = phase2_target_loop(task, memory)           # 记忆在任务间串行继承
 
@@ -81,7 +81,9 @@ def actor_learn(actor, verdict, report, memory, with_diagnosis):
 
 对应代码：[`_promote_learning`](explore/target_learning.py#L163)、[`_commit_branch_memory`](explore/phase1_wave.py#L507)。
 
-## 4. Phase 1：并行波次探索
+## 4. Phase 1：Broad Recursive Self-exploration（BRS，并行波次探索）
+
+BRS 是论文对 Phase 1 的称呼：先"广"——并行获取多样经验，整波结束后按序把经验合并进记忆。
 
 ```python
 # explore/phase1_wave.py: evolve_parallel_phase1
@@ -111,7 +113,9 @@ def phase1_parallel_waves(direction, memory, budget):
 
 对应代码：[`evolve_parallel_phase1`](explore/phase1_wave.py#L551)。
 
-## 5. Phase 2：目标任务驱动的"尝试—学习—练习—重试"
+## 5. Phase 2：Deep Recursive Self-exploration（DRS，目标任务驱动的"尝试—学习—练习—重试"）
+
+DRS 是论文对 Phase 2 的称呼：再"深"——串行地尝试目标任务，由 Curriculum 针对暴露出的缺口选择练习，每条经验先更新记忆再进行下一步。下面两个函数合起来构成 DRS。
 
 ```python
 # core/self_evolving_loop.py: run_self_evolving_loop（hooks 实现在 benchmarks/osworld/phase2.py）
@@ -365,14 +369,14 @@ def phase3_evaluate(task, frozen_memory):
 ```mermaid
 flowchart TD
     subgraph RSI["RSI(protocol)"]
-        r0(["memory = 空"]) --> r1[["phase1_parallel_waves"]]
-        r1 --> r2[["对每个开发任务：phase2_target_loop<br/>记忆在任务间串行继承"]]
+        r0(["memory = 空"]) --> r1[["BRS：phase1_parallel_waves"]]
+        r1 --> r2[["DRS：对每个开发任务 phase2_target_loop<br/>记忆在任务间串行继承"]]
         r2 --> r3["freeze(memory)"]
         r3 --> r4[["对每个留出任务：phase3_evaluate"]]
         r4 --> r5(["返回官方得分"])
     end
 
-    subgraph P1["phase1_parallel_waves"]
+    subgraph P1["BRS（Phase 1）：phase1_parallel_waves"]
         p1a["新建 Curriculum 上下文"] --> p1b{"项目预算未用完？"}
         p1b -- "否" --> p1z(["返回 memory"])
         p1b -- "是" --> p1c["LLM Curriculum：P_WAVE_CURRICULUM"]
@@ -385,7 +389,7 @@ flowchart TD
         p1h --> p1b
     end
 
-    subgraph P2["phase2_target_loop"]
+    subgraph P2["DRS（Phase 2）外层：phase2_target_loop"]
         p2a["新建 Curriculum 上下文"] --> p2b["fresh_target_environment<br/>新建 Verifier 与 Actor 上下文"]
         p2b --> p2c["LLM Actor：P_MEMORY_PREAMBLE + P_OPENING"]
         p2c --> p2d["LLM Verifier：P_TARGET_VERIFIER"]
@@ -402,7 +406,7 @@ flowchart TD
         p2k --> p2b
     end
 
-    subgraph EV["evolve_until_ready"]
+    subgraph EV["DRS（Phase 2）内层：evolve_until_ready"]
         ev1["fresh_null_vm，只读挂载 memory"] --> ev2["LLM Curriculum：P_PHASE2_CURRICULUM + P_CURRICULUM_RUNTIME"]
         ev2 --> ev3{"DECISION"}
         ev3 -- "STALLED" --> evs(["返回 STALLED"])
