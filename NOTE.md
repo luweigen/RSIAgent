@@ -357,3 +357,99 @@ def phase3_evaluate(task, frozen_memory):
 - **信息隔离是闭环成立的前提**：Verifier 看不到 Actor 的记忆、自述与推理；Curriculum 看不到候选结果与官方评测；官方评测结果不回流到任何学习阶段。
 - **谁对什么负责**：正确性只由 Verifier 判定；记忆内容只由 Actor 撰写；Curriculum 只选"下一个经验"。Harness 的 `audit` 只做边界/泄漏检查，不改写记忆。
 - **默认流程未使用的 prompt**：[`unified_curriculum_route_charter`](explore/charter.py#L167)（FAIL 后由 Curriculum 选 REVISE/EVOLVE）、[`unified_curriculum_pass_charter`](explore/charter.py#L80)（PASS 后选 HANDOFF/VERIFY_MORE）、[`self_evolving_target_actor_charter`](explore/charter.py#L643)、[`agent_harness_verifier_orientation_charter`](explore/charter.py#L732)（Verifier 预先熟悉环境，`verifier_stage_lifecycle: false` 时关闭）以及旧版 [`self_evolving_verifier_charter`](explore/charter.py#L1060)。默认 Phase 2 中，目标 FAIL 由协议直接转入进化，不经过 Curriculum 路由。
+
+## 9. 流程图
+
+下图包含上面伪码中的全部 7 个函数。实线是函数内部的控制流，虚线表示"调用该函数"；双边框节点是函数调用，圆角节点是函数的起点或返回。
+
+```mermaid
+flowchart TD
+    subgraph RSI["RSI(protocol)"]
+        r0(["memory = 空"]) --> r1[["phase1_parallel_waves"]]
+        r1 --> r2[["对每个开发任务：phase2_target_loop<br/>记忆在任务间串行继承"]]
+        r2 --> r3["freeze(memory)"]
+        r3 --> r4[["对每个留出任务：phase3_evaluate"]]
+        r4 --> r5(["返回官方得分"])
+    end
+
+    subgraph P1["phase1_parallel_waves"]
+        p1a["新建 Curriculum 上下文"] --> p1b{"项目预算未用完？"}
+        p1b -- "否" --> p1z(["返回 memory"])
+        p1b -- "是" --> p1c["LLM Curriculum：P_WAVE_CURRICULUM"]
+        p1c --> p1d{"decision"}
+        p1d -- "SATURATED / STALLED" --> p1z
+        p1d -- "WAVE" --> p1e["snapshot = memory<br/>同一波共享波前记忆"]
+        p1e --> p1f[["并行：每道题 practice_episode"]]
+        p1f --> p1g[["按出题顺序串行：actor_learn<br/>with_diagnosis = False"]]
+        p1g --> p1h["outcomes = 本波结果，喂回 Curriculum"]
+        p1h --> p1b
+    end
+
+    subgraph P2["phase2_target_loop"]
+        p2a["新建 Curriculum 上下文"] --> p2b["fresh_target_environment<br/>新建 Verifier 与 Actor 上下文"]
+        p2b --> p2c["LLM Actor：P_MEMORY_PREAMBLE + P_OPENING"]
+        p2c --> p2d["LLM Verifier：P_TARGET_VERIFIER"]
+        p2d --> p2e{"verdict"}
+        p2e -- "UNVERIFIED" --> p2f["LLM Actor：P_UNVERIFIED"]
+        p2f --> p2d
+        p2e -- "PASS / FAIL" --> p2g[["actor_learn<br/>with_diagnosis = True"]]
+        p2g --> p2h{"final_after_stall？"}
+        p2h -- "是" --> p2z(["返回 memory"])
+        p2h -- "否" --> p2i[["evolve_until_ready"]]
+        p2i --> p2j{"PASS 且练习数为 0？"}
+        p2j -- "是" --> p2z
+        p2j -- "否" --> p2k["final_after_stall = status 为 STALLED<br/>用全新 Actor 重试原目标"]
+        p2k --> p2b
+    end
+
+    subgraph EV["evolve_until_ready"]
+        ev1["fresh_null_vm，只读挂载 memory"] --> ev2["LLM Curriculum：P_PHASE2_CURRICULUM + P_CURRICULUM_RUNTIME"]
+        ev2 --> ev3{"DECISION"}
+        ev3 -- "STALLED" --> evs(["返回 STALLED"])
+        ev3 -- "READY_FOR_TARGET" --> evr(["返回 READY_FOR_RETRY"])
+        ev3 -- "PROJECT" --> ev4[["practice_episode"]]
+        ev4 --> ev5[["actor_learn<br/>with_diagnosis = True"]]
+        ev5 --> ev6["更新 history 与 latest outcome"]
+        ev6 --> ev1
+    end
+
+    subgraph P3["phase3_evaluate"]
+        p3a["fresh_target_environment，推入冻结记忆"] --> p3b["LLM Actor：P_MEMORY_PREAMBLE + P_OPENING"]
+        p3b --> p3c["LLM Verifier：P_TARGET_VERIFIER"]
+        p3c --> p3d{"verdict"}
+        p3d -- "FAIL" --> p3e["LLM Actor：P_DISAGREEMENT"]
+        p3e --> p3c
+        p3d -- "UNVERIFIED" --> p3f["LLM Actor：P_UNVERIFIED"]
+        p3f --> p3c
+        p3d -- "PASS" --> p3g["official_evaluator"]
+        p3g --> p3z(["返回得分，不回流任何 Agent"])
+    end
+
+    subgraph PE["practice_episode"]
+        pe1["fresh_vm，回放素材，推入只读 memory"] --> pe2["LLM Actor：P_ACTOR_PROJECT + P_ACTOR_RUNTIME"]
+        pe2 --> pe3["capture 候选快照"]
+        pe3 --> pe4["fresh_vm，回放候选"]
+        pe4 --> pe5["LLM Verifier：P_VERIFIER"]
+        pe5 --> pe6(["返回 actor, verdict, report"])
+    end
+
+    subgraph AL["actor_learn"]
+        al1["推入当前规范记忆"] --> al2["LLM Actor：P_DISTILL"]
+        al2 --> al3["LLM Actor：P_RECONCILE"]
+        al3 --> al4{"with_diagnosis？"}
+        al4 -- "是" --> al5["LLM Actor：P_DIAGNOSIS"]
+        al5 --> al6["pull 记忆，audit，commit"]
+        al4 -- "否" --> al6
+        al6 --> al7(["返回 new_memory, diagnosis"])
+    end
+
+    r1 -.-> P1
+    r2 -.-> P2
+    r4 -.-> P3
+    p1f -.-> PE
+    p1g -.-> AL
+    p2g -.-> AL
+    p2i -.-> EV
+    ev4 -.-> PE
+    ev5 -.-> AL
+```
