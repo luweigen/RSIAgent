@@ -3437,19 +3437,229 @@
         "cwd": "/Users/luwei/work/AI/RSIAgent",
         "is_sidechain": false
       }
+    },
+    {
+      "step_id": 42,
+      "timestamp": "2026-11-19T19:07:05.624Z",
+      "source": "user",
+      "message": "所谓Broad Recursive self-exploration和Deep Resursive self-exploration是哪些？",
+      "extra": {
+        "is_sidechain": false
+      }
+    },
+    {
+      "step_id": 43,
+      "timestamp": "2026-11-19T19:07:07.177Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "",
+      "metrics": {
+        "prompt_tokens": 171082,
+        "completion_tokens": 210,
+        "cached_tokens": 171078,
+        "extra": {
+          "cache_creation_input_tokens": 441,
+          "cache_read_input_tokens": 171078,
+          "output_tokens_details": {
+            "thinking_tokens": 54
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 441,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 4,
+              "output_tokens": 210,
+              "cache_read_input_tokens": 171078,
+              "cache_creation_input_tokens": 441,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 441
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false
+      }
+    },
+    {
+      "step_id": 44,
+      "timestamp": "2026-11-19T19:07:08.220Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "Executed Bash toolu_014XYU7hZbJqQ7v4CgAfJEXX",
+      "tool_calls": [
+        {
+          "tool_call_id": "toolu_014XYU7hZbJqQ7v4CgAfJEXX",
+          "function_name": "Bash",
+          "arguments": {
+            "command": "grep -rniE 'broad|deep recursive|self-exploration|self exploration' README.md docs/*.md config/*.md | head -40",
+            "description": "在文档中查找 Broad/Deep 自探索的出处"
+          }
+        }
+      ],
+      "observation": {
+        "results": [
+          {
+            "source_call_id": "toolu_014XYU7hZbJqQ7v4CgAfJEXX",
+            "content": "README.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only\n\n[stdout]\nREADME.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only\n[metadata] {\"noOutputExpected\": false}"
+          }
+        ]
+      },
+      "metrics": {
+        "prompt_tokens": 171082,
+        "completion_tokens": 210,
+        "cached_tokens": 171078,
+        "extra": {
+          "cache_creation_input_tokens": 441,
+          "cache_read_input_tokens": 171078,
+          "output_tokens_details": {
+            "thinking_tokens": 54
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 441,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 4,
+              "output_tokens": 210,
+              "cache_read_input_tokens": 171078,
+              "cache_creation_input_tokens": 441,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 441
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "tool_use",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false,
+        "tool_use_name": "Bash",
+        "tool_result_metadata": {
+          "tool_use_result": {
+            "stdout": "README.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only",
+            "stderr": "",
+            "interrupted": false,
+            "isImage": false,
+            "noOutputExpected": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_014XYU7hZbJqQ7v4CgAfJEXX",
+            "type": "tool_result",
+            "content": "README.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only",
+            "is_error": false
+          }
+        },
+        "tool_result_is_error": false,
+        "metadata": {
+          "tool_use_result": {
+            "stdout": "README.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only",
+            "stderr": "",
+            "interrupted": false,
+            "isImage": false,
+            "noOutputExpected": false
+          },
+          "raw_tool_result": {
+            "tool_use_id": "toolu_014XYU7hZbJqQ7v4CgAfJEXX",
+            "type": "tool_result",
+            "content": "README.md:56:The paper's central strategy is **broad-then-deep exploration**: first acquire\nREADME.md:71:[![RSIAgent framework: parallel Broad Recursive Self-exploration, sequential Deep Recursive Self-exploration, and test-time reuse of frozen memory, illustrated with FreeCAD.](docs/assets/framework.png)](docs/assets/framework.png)\nREADME.md:73:*The paper's original framework figure, illustrated with a FreeCAD task. Broad\nREADME.md:100:| **Phase 1** | **Broad Recursive Self-exploration (BRS)** | The Curriculum Agent proposes diverse projects. Actor Agents execute and Verifier Agents check them in parallel from a shared starting memory. After the complete wave, Actor Agents consolidate their experiences in order. |\nREADME.md:101:| **Phase 2** | **Deep Recursive Self-exploration (DRS)** | Target attempts reveal gaps and fragile successes. The Curriculum Agent selects focused practice; each verified experience updates memory before subsequent practice or another target attempt. |\ndocs/PAPER.md:29:| Broad Recursive Self-exploration (BRS) | Phase 1: parallel experience acquisition, followed by ordered memory consolidation |\ndocs/PAPER.md:30:| Deep Recursive Self-exploration (DRS) | Phase 2: sequential target attempts and practice selected by the Curriculum Agent |\ndocs/PAPER.md:87:The broad-only condition evaluates preserved BRS memory directly. The deep-only",
+            "is_error": false
+          }
+        },
+        "raw_arguments": {
+          "command": "grep -rniE 'broad|deep recursive|self-exploration|self exploration' README.md docs/*.md config/*.md | head -40",
+          "description": "在文档中查找 Broad/Deep 自探索的出处"
+        }
+      }
+    },
+    {
+      "step_id": 45,
+      "timestamp": "2026-11-19T19:07:16.811Z",
+      "source": "agent",
+      "model_name": "claude-fable-5-2",
+      "message": "这两个是论文里的术语，分别就是 Phase 1 和 Phase 2（见 `README.md:100` 和 `docs/PAPER.md:29`）：\n\n| 论文术语 | 对应阶段 | NOTE.md 中的伪码函数 | 做什么 |\n| --- | --- | --- | --- |\n| **Broad Recursive Self-exploration (BRS)** | Phase 1 | `phase1_parallel_waves`（调用 `practice_episode`、`actor_learn`） | Curriculum 一次出一波多样的练习题；多个 Actor/Verifier 从同一份波前记忆出发并行做题和判定；整波结束后各 Actor 按出题顺序串行把经验写进记忆 |\n| **Deep Recursive Self-exploration (DRS)** | Phase 2 | `phase2_target_loop` + `evolve_until_ready` | 真实尝试目标任务，暴露能力缺口或脆弱的成功；Curriculum 据此选择针对性的练习；每条经过验证的经验先更新记忆，再进行下一次练习或重试目标 |\n\n两者的区别主要在三点：\n\n- **并行 vs 串行**：BRS 是同一波内并行、波与波之间递归；DRS 完全串行，每一步都建立在上一步刚更新的记忆上。\n- **驱动信号**：BRS 由任务分布（或目标查询的\"能力邻域\"）驱动，不碰原目标任务；DRS 由目标任务的实际 PASS/FAIL 报告和 Actor 的学习诊断驱动。\n- **停止条件**：BRS 在 Curriculum 判断 `SATURATED` 或项目预算用完时结束；DRS 在目标 PASS 且 Curriculum 认为无需再练（`READY_FOR_TARGET`）时结束。\n\n论文把整体策略称为 **broad-then-deep exploration**：先广后深。Phase 3 不属于自探索，只是用冻结记忆做评测。`docs/PAPER.md:87` 还提到 broad-only 和 deep-only 两种消融条件。\n\n需要的话，我可以把 BRS/DRS 这两个术语标注到 `NOTE.md` 对应的章节标题和流程图子图上。",
+      "metrics": {
+        "prompt_tokens": 171521,
+        "completion_tokens": 774,
+        "cached_tokens": 171519,
+        "extra": {
+          "cache_creation_input_tokens": 756,
+          "cache_read_input_tokens": 171519,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 756,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 774,
+              "cache_read_input_tokens": 171519,
+              "cache_creation_input_tokens": 756,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 756
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        }
+      },
+      "extra": {
+        "stop_reason": "end_turn",
+        "cwd": "/Users/luwei/work/AI/RSIAgent",
+        "is_sidechain": false
+      }
     }
   ],
   "final_metrics": {
-    "total_prompt_tokens": 4409169,
-    "total_completion_tokens": 52476,
-    "total_cached_tokens": 4409087,
-    "total_steps": 41,
+    "total_prompt_tokens": 4922854,
+    "total_completion_tokens": 53670,
+    "total_cached_tokens": 4922762,
+    "total_steps": 45,
     "extra": {
       "service_tiers": [
         "standard"
       ],
-      "total_cache_creation_input_tokens": 340273,
-      "total_cache_read_input_tokens": 4409087
+      "total_cache_creation_input_tokens": 341911,
+      "total_cache_read_input_tokens": 4922762
     }
   }
 }
